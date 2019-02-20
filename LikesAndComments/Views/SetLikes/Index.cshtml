@@ -1,0 +1,70 @@
+﻿@model IEnumerable<LikesAndComments.Models.SetLike>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+<link rel="icon" href="~/img/core-img/favicon.ico">
+
+<!-- Stylesheet -->
+<link rel="stylesheet" href="style.css">
+
+<link href="~/css/image.css" rel="stylesheet" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        @* <th>
+                 @Html.DisplayNameFor(model => model.Image)
+             </th>
+            <th>
+                 @Html.DisplayNameFor(model => model.Text)
+             </th>
+             <th>
+                 @Html.DisplayNameFor(model => model.PostDate)
+             </th>
+             <th>
+                 @Html.DisplayNameFor(model => model.PostLike)
+             </th>
+             <th></th>*@
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <img src="@Url.Content(item.Image)" alt="Image" width="500" height="500" /><br />
+
+                @Html.DisplayFor(modelItem => item.Text) at @Html.DisplayFor(modelItem => item.PostDate)
+                <br />
+                @Html.DisplayFor(modelItem => item.PostLike) Likes <br />
+
+                @*<i class="glyphicon glyphicon-pencil">@Html.ActionLink("Like", "Like", new { id = item.Id })</i>*@
+
+
+                <span class="glyphicon glyphicon-heart"></span> @Html.ActionLink("Likes", "Like", new { id = item.Id, @class = "btn btn-info btn-lg" })
+
+
+                <a href="#" class="btn btn-info btn-lg">
+                    <span class="glyphicon glyphicon-comment"></span>Comments@*@Html.ActionLink("Comment", "Create", "Comments")*@
+                </a>
+                @*@Html.ActionLink("Like", "Like", new { id = item.Id })*@
+            </td>
+            @*<td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+
+                </td>*@
+        </tr>
+    }
+
+</table>

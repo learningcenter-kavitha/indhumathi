@@ -1,0 +1,10 @@
+﻿body {
+}
+
+.addimg {
+    background-image: url("../image/like.png");
+    background-repeat: no-repeat;
+    display: block;
+    height: 24px;
+    width: 24px;
+}
